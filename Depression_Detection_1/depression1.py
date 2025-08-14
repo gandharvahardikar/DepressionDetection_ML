@@ -14,7 +14,6 @@ from sklearn.svm import SVC
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neural_network import MLPClassifier
 import xgboost as xgb
-import lightgbm as lgb
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -320,7 +319,7 @@ class ModelComparison:
         self.models['Gradient Boosting'] = GradientBoostingClassifier(random_state=42)
         self.models['Naive Bayes'] = GaussianNB()
         self.models['XGBoost'] = xgb.XGBClassifier(random_state=42)
-        self.models['LightGBM'] = lgb.LGBMClassifier(random_state=42, verbose=-1)
+        self.models['LightGBM'] = LGB.LGBMClassifier(random_state=42, verbose=-1)
         
     def evaluate_models(self, X_train, X_test, y_train, y_test):
         """Evaluate all models"""
@@ -392,7 +391,7 @@ class ModelComparison:
 def main():
     # Load data
     print("Loading mental health survey data...")
-    df = pd.read_csv('Depression_Detection_ML\Depression_Detection_1\survey.csv')
+    df = pd.read_csv("Depression_Detection_ML\Depression_Detection_1\survey.csv")
     
     # Preprocessing
     preprocessor = DataPreprocessor()
